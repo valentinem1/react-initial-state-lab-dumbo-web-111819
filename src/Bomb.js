@@ -7,10 +7,11 @@ class Bomb extends Component {
         super(props)
 
         this.state = {
-            secondsLeft: this.props.initialCount
+            secondsLeft: props.initialCount
         }
     }
 
+    // longer way to do it
     bombExplosion = () => {
         if(this.state.secondsLeft === 0){
             return <p>Boom!</p>
@@ -21,11 +22,17 @@ class Bomb extends Component {
 
     render() {
         return (
-            <div>
-                <p>{this.bombExplosion()}</p>
-            </div> 
-        );
+        <div>{this.bombExplosion()}</div>
+        )
     }
+
+    // fastest way to do it
+    // render() {
+    //     const bombExplosion = this.state.secondsLeft === 0 ? 'Boom!' : `${this.state.secondsLeft} seconds left before I go boom!`
+    //     return (
+    //         <div>{bombExplosion}</div> 
+    //     );
+    // }
 }
 
 export default Bomb;
